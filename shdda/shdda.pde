@@ -5,7 +5,7 @@ void setup() {
   stroke(0);
 }
 
-void shdda(int x1, int y1, int x2, int y2) {
+void sh_dda(int x1, int y1, int x2, int y2) {
   int dx, dy, k, steps;
   float x_inc, y_inc, x, y;
   
@@ -31,5 +31,5 @@ void shdda(int x1, int y1, int x2, int y2) {
 }
 
 void draw() {
-  shdda(100, 100, 200, 200);
+  sh_dda(100, 100, 200, 200);
 }
