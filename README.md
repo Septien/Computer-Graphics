@@ -8,3 +8,6 @@ Create a programm that draw a line with a slope of:
 	-30°.
 	-45°.
 	-60°.
+
+Homework #3:
+Create a program that draws lines at arbitrari angels.
