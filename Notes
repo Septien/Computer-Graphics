@@ -1,0 +1,30 @@
+Diferential Digital Analizer (DDA).
+
+It works for drawing lines.
+Psuedocode:
+
+Procedure dda(x1, y1, x2, y2 : integer)
+	var
+		dx, dy, steps, k: integer
+		x_inc, y_inc, x, y: real
+	begin
+		dx = x2 - x1
+		dy = y2 - y1
+		if abs(dx) > abs(dy) then
+			steps = abs(dx)
+		else
+			steps = abs(dy)
+		end if
+
+		x_inc = dx / steps
+		y_inc = dy / steps
+		x = x1
+		y = y1
+		set_pixel(round(x), round(y))
+		for k = 1 to steps do
+		begin
+			x = x + x_inc
+			y = y + y_inc
+			set_pixel(round(x), round(y))
+		end for
+	end dda
