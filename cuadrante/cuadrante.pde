@@ -23,8 +23,21 @@ void draw_line(float w, float h, boolean horizontal) {
 
 void draw() {
   //Pinta linea horizontal
-  draw_line(width, height, true);
+  //draw_line(width, height, true);
 
   //Pinta linea vertical
-  draw_line(width, height, false);
+  //draw_line(width, height, false);
+  
+  //Pinta lineas horizontales
+  for (j = 0; j < width; j += 30) {
+    for (i = 0; i < height; i++) {
+      point(j, i);
+    }
+  }
+  //Pinta lineas verticales
+  for (j = 0; j < height; j += 30) {
+    for (i = 0; i < width; i++) {
+      point(i, j);
+    }
+  }
 }
