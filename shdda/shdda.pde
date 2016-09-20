@@ -17,8 +17,8 @@ void sh_dda(int x1, int y1, int x2, int y2) {
    else
      steps = dy;
    
-   x_inc = dx / steps;
-   y_inc = dy / steps;
+   x_inc = float(dx / steps);
+   y_inc = float(dy / steps);
    x = x1;
    y = y1;
    
