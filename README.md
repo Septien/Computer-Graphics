@@ -10,4 +10,5 @@ Create a programm that draw a line with a slope of:
 	-60°.
 
 Homework #3:
-Create a program that draws lines at arbitrary angles.
+Implement the Bresenham algorithm and draw a star using DDA and Bresenham algorithms.
+Make a report with introduction, methodology, results and conclusions.
