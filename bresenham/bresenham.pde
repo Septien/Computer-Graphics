@@ -39,5 +39,36 @@ void shBresenham(int x0, int y0, int x1, int y1) {
 }
 
 void draw() {
-  shBresenham(0, 0, 200, 200);
+  //shBresenham(0, 0, 200, 200);
+  int w = width / 2, h = height / 2;
+  float theta = 0;
+  float inc = TWO_PI / 16.0;
+  int x0 , y0;
+  int x1, y1;
+  int i;
+  
+  stroke(0);
+  for (i = 0; i < 16; i++) {
+    x1 = w + (int(200.0*cos(theta)));
+    y1 = h + (int(200.0*sin(theta)));
+    shBresenham(w, h, x1, y1);
+    theta += inc;
+  }
+  /*shBresenham(w, h, w+(int(200.0*cos(0))), h + (int(200.0*sin(0))));
+  shBresenham(w, h, w+(int(200.0*cos(PI/10.0))), h + (int(200.0*sin(PI/10.0))));
+  shBresenham(w, h, w+(int(200.0*cos(PI/5.0))), h + (int(200.0*sin(PI/5.0))));
+  shBresenham(w, h, w+(int(200.0*cos(PI/3.3333))), h + (int(200.0*sin(PI/3.3333))));
+  /*for (i = 0; i < 20; i++) {
+    if (i%2 == 0)
+      stroke(255, 0, 0);
+     else
+       stroke(0);
+     shBresenham(w, h, x1, y1);
+     div = 180.0 / theta;
+     x1 = w + (int(200.0*cos(PI/(div))));
+     y1 = h + (int(200.0*sin(PI/(div))));
+     x0 = int(200*cos(theta+180)) + w;
+     y0 = int(200*sin(theta+180)) + h;
+     theta += 18;
+  }*/
 }
