@@ -28,3 +28,11 @@ Procedure dda(x1, y1, x2, y2 : integer)
 			set_pixel(round(x), round(y))
 		end for
 	end dda
+
+Bresenham algorithm for drawing lines.
+Input: line-ends (x1, y1), (x2, y2).
+Deploy first point (x1, y1).
+Calculate Dx = x2 - x1, Dy = y2 - y1, p1 = 2Dy - Dx. If p1 = 0, the next point
+to draw is (x1 + 1, y1), otherwise (x1 + 1, y1 + 1).
+Increment x by unitary steps.
+In position
