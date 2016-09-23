@@ -31,16 +31,16 @@ void shycircle(int xc, int yc, int r) {
 } 
 
 //Function that draws a circle using polar coordinates
-void shpolarcircle(int r) {
+void shpolarcircle(int xc, int yc, int r) {
   int theta;
   for (theta = 0; theta < 360; theta++) {
-    point(r*cos((theta*PI)/360.0), r*sin((theta*PI)/360.0));
+    point(xc + (r*cos((theta*TWO_PI)/360.0)), yc + (r*sin((theta*TWO_PI)/360.0)));
   }
 }
 
 void draw() {
   //shcircle(width/2, height/2, 800);
-  //point(width/2, height/2);
+  point(width/2, height/2);
   //shycircle(width/2, height/2, 50);
-  shpolarcircle(100);
+  shpolarcircle(width/2, height/2, 100);
 }
