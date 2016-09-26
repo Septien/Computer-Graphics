@@ -17,4 +17,4 @@ Homework #4:
 Draw a circle using the equation y = sqrt(r*r - pow(x-xc, 2)) + yc.
 Draw circle using simetry properties. That is: Calculate values from 0° to 45° and
 use the simetry properties for draw all others point. Use polar coordinates. Out of origin.
-Send all methods seen in class for drawind circles.
+Send all methods seen in class for drawing circles.
