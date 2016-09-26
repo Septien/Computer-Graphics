@@ -36,10 +36,35 @@ void shpolarcircle(int xc, int yc, int r) {
   }
 }
 
+//Draws eight points of a circle using its simetry property
+void circlePoint(int x, int y) {
+  point(x, y);
+  point(y, x);
+  point(-y, x);
+  point(-x, y);
+  point(-x, -y);
+  point(-y, -x);
+  point(y, -x);
+  point(x, -y);
+}
+
+//Draw a circle using its symetry propertiy.
+//Use polar coordinates. Out of origin.
+void shsymetrycircle(int xc, int yc, int r) {
+  int theta;
+  int x, y;
+  for (theta = 0; theta < 45; theta++) {
+    x = xc + int(r * cos((theta * PI)/45.0));
+    y = yc + int(r * sin((theta * PI)/45.0));
+    circlePoint(x, y);
+  }
+}
+
 void draw() {
   //shcircle(width/2, height/2, 800);
   point(width/2, height/2);
   //shycircle(width/2, height/2, 50);
   //shpolarcircle(width/2, height/2, 100);
-  shycircle(width/2, height/2, 50);
+  //shycircle(width/2, height/2, 50);
+  shsymetrycircle(width/2, height/2, 50);
 }
