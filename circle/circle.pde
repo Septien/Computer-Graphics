@@ -1,10 +1,11 @@
-//Draw a fill circle
+
 void setup() {
   size(700, 600);
   background(255);
   stroke(0, 0, 255);
 }
 
+//Draw a fill circle
 //Input: center of the circle, radius
 void shcircle(int xc, int yc, int r) {
   int i, j;
