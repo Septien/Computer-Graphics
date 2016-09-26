@@ -18,14 +18,11 @@ void shcircle(int xc, int yc, int r) {
 //Draw a circle calculating the y coordinate
 void shycircle(int xc, int yc, int r) {
   int x, y;
-  int i, j;
-  /*for (i = 0; i < width; i++)
-   for (j = 0; j < height; j++){
-   
-   }*/
 
-  for (x = xc; x <= xc + r; x++) {
-    y = int(sqrt(r*r + pow(x - xc, 2))) + yc;
+  for (x = xc - r; x <= xc + r; x++) {
+    y = int(sqrt(r*r - pow(x - xc, 2))) + yc;
+    point(x, y);
+    y = int(-sqrt(r*r - pow(x - xc, 2))) + yc;
     point(x, y);
   }
 } 
@@ -42,5 +39,6 @@ void draw() {
   //shcircle(width/2, height/2, 800);
   point(width/2, height/2);
   //shycircle(width/2, height/2, 50);
-  shpolarcircle(width/2, height/2, 100);
+  //shpolarcircle(width/2, height/2, 100);
+  shycircle(width/2, height/2, 50);
 }
