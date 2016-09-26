@@ -18,3 +18,16 @@ Draw a circle using the equation y = sqrt(r*r - pow(x-xc, 2)) + yc.
 Draw circle using simetry properties. That is: Calculate values from 0° to 45° and
 use the simetry properties for draw all others point. Use polar coordinates. Out of origin.
 Send all methods seen in class for drawing circles.
+
+Symtery Properties:
+Calculate (x,y) in the circle for a theta <= 45°.
+Draw the others using the following properties:
+(x,y) 		//Original point
+(y,x)
+(-y, x)
+(-x,y)
+(-x,-y)
+(-y,-x)
+(y,-x)
+(x,-y)
+Works for circle centerd at the origin.
