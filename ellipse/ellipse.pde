@@ -28,7 +28,17 @@ void shcellipse(int xc, int yc, int r1, int r2) {
   }
 }
 
+//Draws an spiral
+void shespiral(float xc, float yc, float a, float b) {
+  float theta, r;
+  for (theta = 0; theta < 720; theta += 0.1) {
+    r = a + b*theta;
+    point(xc + (r*cos((theta*TWO_PI)/360.0)), yc + (r*sin((theta*TWO_PI)/360.0)));
+  }
+}
+
 void draw() {
   //shellipse(width/2, height/2, 100, 40);
-  shcellipse(width/2, height/2, 100, 40);
+  //shcellipse(width/2, height/2, 100, 40);
+  shespiral(width/2, height/2, 0.4, 0.3);
 }
