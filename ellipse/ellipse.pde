@@ -20,6 +20,15 @@ void shellipse(int xc, int yc, int r1, int r2) {
   }
 }
 
+//Draw an ellipse using polar coordinates
+void shcellipse(int xc, int yc, int r1, int r2) {
+  int theta;
+  for (theta = 0; theta < 360; theta++) {
+    point(xc + (r1*cos((theta*TWO_PI)/360.0)), yc + (r2*sin((theta*TWO_PI)/360.0)));
+  }
+}
+
 void draw() {
-  shellipse(width/2, height/2, 100, 40);
+  //shellipse(width/2, height/2, 100, 40);
+  shcellipse(width/2, height/2, 100, 40);
 }
