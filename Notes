@@ -36,3 +36,16 @@ Calculate Dx = x2 - x1, Dy = y2 - y1, p1 = 2Dy - Dx. If p1 = 0, the next point
 to draw is (x1 + 1, y1), otherwise (x1 + 1, y1 + 1).
 Increment x by unitary steps.
 In position
+
+Symtery Properties of the circle:
+Calculate (x,y) in the circle for a theta <= 45°.
+Draw the others using the following properties:
+(x,y) 		//Original point
+(y,x)
+(-y, x)
+(-x,y)
+(-x,-y)
+(-y,-x)
+(y,-x)
+(x,-y)
+Works for circle centerd at the origin.
