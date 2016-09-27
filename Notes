@@ -49,3 +49,12 @@ Draw the others using the following properties:
 (y,-x)
 (x,-y)
 Works for circle centerd at the origin.
+
+Write a program that draws each one of the follows. One program per figure.
+	-Cardioide: r = a * (1 + cos(theta)).
+	-Three leaves: r = a * cos(3 * theta).
+	-Four leaves: r = a * cos(2 * theta).
+	-Limacos: r = b + a * cos(theta).
+	-Rose: r = 200 * cos(4 * theta).
+
+
