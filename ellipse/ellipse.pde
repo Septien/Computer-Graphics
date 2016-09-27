@@ -10,15 +10,16 @@ void setup() {
   f = createFont("Arial", 20, true);
 }
 
+//Draws a ellipse using its general equation
 void shellipse(int xc, int yc, int r1, int r2) {
   float x, y;
   for (x = xc-r1; x < xc + r1; x += 0.1) {
-    y = (r2 * sqrt(1 - pow((x - xc)/r1, 2)));
+    y = sqrt(pow(r1*r2, 2) - pow(r2*(x - xc), 2)) / r1;
     point(x,y + yc);
     point(x, -y + yc);
   }
 }
 
 void draw() {
-  shellipse(50, 50, 100, 40);
+  shellipse(width/2, height/2, 100, 40);
 }
