@@ -43,7 +43,7 @@ void shpolarcircle(int xc, int yc, int r) {
 }
 
 //Draws eight points of a circle using its simetry property
-void circlePoint(int x, int y, int xc, int yc) {
+void circlePoint(int x, int y) {
   point(x, y);
   point(y, x);
   point(-y, x);
@@ -62,7 +62,7 @@ void shsymetrycircle(int xc, int yc, int r) {
   for (theta = 0; theta < 45; theta++) {
     x = xc + int(r * cos((theta * PI)/180.0));
     y = yc + int(r * sin((theta * PI)/180.0));
-    circlePoint(x, y, xc, yc);
+    circlePoint(x, y);
   }
 }
 
@@ -72,8 +72,8 @@ void draw() {
   //text("Circunferencia usando propiedades de simetría.", width/2, 200 + (height/2));
   //shcircle(width/2, height/2, 100);
   point(width/2, height/2);
-  shycircle(width/2, height/2, 100);
+  //shycircle(width/2, height/2, 100);
   //shpolarcircle(width/2, height/2, 100);
-  //translate((width/2), height/2);
-  //shsymetrycircle(0, 0, 100);
+  translate((width/2), height/2);
+  shsymetrycircle(0, 0, 100);
 }
