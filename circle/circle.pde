@@ -68,13 +68,13 @@ void shsymetrycircle(int xc, int yc, int r) {
 
 void draw() {
   textFont(f);                            //Set the font
-  //translate((width/2) + 200, height/2);   //Put it bellow the circle
   textAlign(CENTER);
-  text("Circulo relleno", width/2, 200 + (height/2));
-  //shcircle(width/2, height/2, 800);
+  text("Circunferencia usando propiedades de simetría.", width/2, 200 + (height/2));
+  //shcircle(width/2, height/2, 100);
   point(width/2, height/2);
   //shycircle(width/2, height/2, 50);
   //shpolarcircle(width/2, height/2, 100);
   //shycircle(width/2, height/2, 50);
-  shsymetrycircle(100, 100, 50);
+  translate((width/2), height/2);
+  shsymetrycircle(0, 0, 100);
 }
