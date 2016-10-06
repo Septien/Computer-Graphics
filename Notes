@@ -57,4 +57,14 @@ Write a program that draws each one of the follows. One program per figure.
 	-Limacos: r = b + a * cos(theta).
 	-Rose: r = 200 * cos(4 * theta).
 
+Incremental algorithm or middle point algorith for the generation of circles.
+Input: radious r of the circle, (xc, yc) coordinates of the center of the circle.
+Set the initial coordinates to (x, y) = (0, r), for a cricle centered at the origin,
+Calculate the initial value of the desicion parameter as d = (5/4) - r.
+For each position of x, starting at k = 0, check: if p_k < 0, the next point will be
+(x_{k} + 1, y_k) and p_k+1 = p_k + 2x_{k+1} + 1. On the other case, the next point
+will bi (x_{k} + 1, y_{k} - 1) and p_k+1 = p_k + 2x_{k+1} + 1 - 2y_{k+1}.
+Determine the position of the rest 7 pixels.
+Move each coordinate acordingly to x = x_k + xc, y = y_k + yc:
+Repeat the three previous steps until x >= y.
 
