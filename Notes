@@ -68,3 +68,5 @@ Determine the position of the rest 7 pixels.
 Move each coordinate acordingly to x = x_k + xc, y = y_k + yc:
 Repeat the three previous steps until x >= y.
 
+Second differences.
+

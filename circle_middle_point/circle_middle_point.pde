@@ -47,6 +47,41 @@ void shcircleMiddlePoint(int xc, int yc, int r) {
   }
 }
 
+/**Generation of circle using algorithm of second difference
+** inputs: 
+**  *(xc, yc): center of the circle
+**  *r: radius of the circle
+**/
+void shcircleSecondDifference(int xc, int yc, int r) {
+  int x, y, d;
+  int de, dse; //Second differences
+  
+  //Starting point
+  x = 0;
+  y = r;
+  
+  //Initial distance
+  //d = (5.0 / 4.0) - r;
+  d = 1 - r;
+  de = 3;
+  dse = 5 - (2 * r);
+  while (x <= y) {
+    circlePoint(x, y, xc, yc);
+    if (d < 0) {
+      d += de;
+      de += 2;
+      dse += 2;
+    }
+    else {
+      d += dse;
+      de += 2;
+      dse += 4;
+      y--;
+    }
+    x++;
+  }
+}
+
 void draw() {
   point(width/2, height/2);
   //shcircleMiddlePoint(width/2, height/2, 90);
