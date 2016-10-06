@@ -82,6 +82,27 @@ void shcircleSecondDifference(int xc, int yc, int r) {
   }
 }
 
+//Bresenham algorithm for generating circles
+void shcircleBresenham(int xc, int yc, int r) {
+  int x, y, p;
+  
+  //Starting point
+  x = 0;
+  y = r;
+  //Initial p
+  p = 3 - (2 * r);
+  while (x <= y) {
+    circlePoint(x, y, xc, yc);
+    if (p < 0)
+      p = p + (4 * x) + 6;
+    else {
+      p = p + (4 * (x - y)) + 10;
+      y--;
+    }
+    x++;
+  }
+}
+
 void draw() {
   point(width/2, height/2);
   //shcircleMiddlePoint(width/2, height/2, 90);
