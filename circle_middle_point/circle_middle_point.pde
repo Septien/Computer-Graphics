@@ -103,6 +103,25 @@ void shcircleBresenham(int xc, int yc, int r) {
   }
 }
 
+void shcircleBresenham2(int xc, int yc, int r) {
+  int x, y, e;
+  
+  //Starting point
+  x = r;
+  y = 0;
+  //Initial error
+  e = 0;
+  while (x >= y) {
+    circlePoint(x, y, xc, yc);
+    e += (2 * y) + 1;
+    y++;
+    if ((2 * e) > (2*x - 1)) {
+      e += -(2 * x) + 1;
+      x--;
+    }
+  }
+}
+
 void draw() {
   point(width/2, height/2);
   //shcircleMiddlePoint(width/2, height/2, 90);
