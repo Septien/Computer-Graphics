@@ -127,4 +127,8 @@ void draw() {
   //shcircleMiddlePoint(width/2, height/2, 90);
   for (int i = 0; i < 20; i++) 
     shcircleMiddlePoint(width/2, height/2, 10 + 10 * i);
+  //shcircleMiddlePoint(width/2, height/2, 90);
+  //shcircleSecondDifference(width/2, height/2, 100);
+  //shcircleBresenham(width/2, height/2, 20);
+  shcircleBresenham2(width/2, height/2, 100);
 }
