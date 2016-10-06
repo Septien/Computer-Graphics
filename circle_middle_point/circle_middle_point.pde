@@ -26,22 +26,21 @@ void circlePoint(int x, int y, int xc, int yc) {
 **  *r: radius of the circle
 **/
 void shcircleMiddlePoint(int xc, int yc, int r) {
-  int x, y;
-  float d;
+  int x, y, d;
   
   //Starting point
   x = 0;
   y = r;
   
   //Initial distance
-  d = (5.0 / 4.0) - r;
+  d = 1 - r;
   while (x <= y) {
     circlePoint(x, y, xc, yc);
     if (d < 0) {
-      d = d + (2 * x) + 1;
+      d += (2 * x) + 1;
     }
     else {
-      d = d + (2 * x) - (2 * y) + 5;
+      d += (2 * x) - (2 * y) + 5;
       y--;
     }
     x++;
