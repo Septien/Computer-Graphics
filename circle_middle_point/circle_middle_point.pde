@@ -50,5 +50,7 @@ void shcircleMiddlePoint(int xc, int yc, int r) {
 
 void draw() {
   point(width/2, height/2);
-  shcircleMiddlePoint(width/2, height/2, 90);
+  //shcircleMiddlePoint(width/2, height/2, 90);
+  for (int i = 0; i < 20; i++) 
+    shcircleMiddlePoint(width/2, height/2, 10 + 10 * i);
 }
