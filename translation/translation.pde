@@ -25,6 +25,7 @@ void sh2DTranslate(int tx, int ty) {
 }
 
 void draw() {
-  rect(100, 100, 120, 120);
-  sh2DTranslate(210, 21);
+  //rect((width/2) + 100, (height/2) + 100, (width/2) + 120, (height/2) + 120);
+  
+  sh2DTranslate(-210, -21);
 }
