@@ -15,14 +15,14 @@ void setup() {
 **  *(xc, yc): Center of the circle.
 **/
 void circlePoint(int x, int y, int xc, int yc) {
-  point(x + xc, y + yc);
-  point(y + xc, x + yc);
-  point(-y + xc, x + yc);
-  point(-x + xc, y + yc);
-  point(-x + xc, -y + yc);
-  point(-y + xc, -x + yc);
-  point(y + xc, -x + yc);
-  point(x + xc, -y + yc);
+  point(x + xc, (y + yc) % height);
+  point(y + xc, (x + yc) % height);
+  point(-y + xc, (x + yc) % height);
+  point(-x + xc, (y + yc) % height);
+  point(-x + xc, (-y + yc) % height);
+  point(-y + xc, (-x + yc) % height);
+  point(y + xc, (-x + yc) % height);
+  point(x + xc, (-y + yc) % height);
 }
 
 void shcircleBresenham2(int xc, int yc, int r) {
@@ -49,7 +49,9 @@ void draw() {
   background(255);
   shcircleBresenham2(width/2, (int)y, r);
   //line(0, y, width, y);
-  y = (y + 1)%(height + r);
+  y--;
+  if (y < -r)
+    y = height + r;
 }
 
 void mousePressed() {
