@@ -76,32 +76,14 @@ class Circle {
     if (yc >= height - r || yc <= r)
       vy *= -1;
   }
-  
-  void collide(Circle c) {
-    float dx = c.xc - xc;
-    float dy = c.yc - yc;
-    float distance = sqrt(dx*dx + dy*dy);
-    float minDist = c.r + r;
-    if (distance <= minDist) { 
-       float angle = atan2(dy, dx);
-       float targetX = /*xc +*/ cos(angle);// * minDist;
-       float targetY = /*yc + */sin(angle);// * minDist;
-       float ax = targetX;// - c.xc;
-       float ay = targetY;// - c.yc;
-       vx *= -ax;
-       vy *= -ay;
-    }
-  }
 }
 
 void draw() {
   background(255);
   c1.draw_circle();
   c1.move();
-  //c1.collide(c2);
   c2.draw_circle();
   c2.move();
-  //c2.collide(c1);
 }
 
 void mousePressed() {
