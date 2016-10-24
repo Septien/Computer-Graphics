@@ -5,8 +5,8 @@ Circle c1, c2;
 
 void setup() {
   size(500, 400);
-  stroke(0, 0, 255);
-  noLoop();
+  stroke(255);
+  //noLoop();
   
   c1 = new Circle( width/4, height/2, 50);
   c2 = new Circle(3 * width / 4, height / 2, 50);
@@ -79,14 +79,14 @@ class Circle {
 }
 
 void draw() {
-  background(255);
+  background(0);
   c1.draw_circle();
   c1.move();
   c2.draw_circle();
   c2.move();
 }
 
-void mousePressed() {
+/*void mousePressed() {
   if (loop) {
     loop();
     loop = false;
@@ -95,4 +95,4 @@ void mousePressed() {
     noLoop();
     loop = true;
   }
-}
+}*/
