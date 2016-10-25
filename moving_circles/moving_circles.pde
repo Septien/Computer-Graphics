@@ -71,10 +71,14 @@ class Circle {
     yc += vy;
     
     //Check for boundaries
-    if (xc >= width - r || xc <= r)
-      vx *= -1;
-    if (yc >= height - r || yc <= r)
-      vy *= -1;
+    if (xc >= width - r )
+      vx = -(int) random(0, 10);
+    if (xc <= r)
+      vx = (int) random(0, 10);
+    if (yc >= height - r)
+      vy = -(int) random(0, 10);
+    if (yc <= r)
+      vy = (int) random(0, 10); 
   }
 }
 
