@@ -4,6 +4,10 @@
 int n, l;
 int[][] m;
 
+color backg = color(255);
+color grid_c = color(0);
+color alive = color(0, 255, 0);
+color dead = backg;
 
 void setup() {
   int i, j;
@@ -15,6 +19,17 @@ void setup() {
   n = width/l;
   m = new int[n][n];
 
+  //Initialize status of cells
+  for (i = 0; i < n; i++)
+    for (j = 0; j < n; j++) {
+        //Dead on the borders of the windows
+        if (i == 0 || i == n)
+          m[i][j] = 0;
+        else if (j == 0 || j == n)
+          m[i][j] = 0;
+        else
+          m[i][j] = (int) random(0, 1.2);
+    }
   noLoop();
 }
 
@@ -27,6 +42,23 @@ void grid() {
     }
 }
 
+//Display living cells
+void cells() {
+  int i, j;
+  for (i = 0; i < n; i++)
+    for (j = 0; j < n; j++) {
+      if (m[i][j] == 1) {
+        fill(alive);
+        rect(i*l, j*l, l, l);
+      }
+      else {
+        fill(dead);
+        rect(i*l, j*l, l, l);
+      }
+    }
+}
+
 void draw() {
   grid();
+  cells();
 }
