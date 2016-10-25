@@ -78,19 +78,19 @@ void apply_rules() {
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++) {
       alive_n = 0;
-      if (i-1 > 0 && j-1 > 0)
+      if (i-1 >= 0 && j-1 >= 0)
         if (m[i-1][j-1] == 1)
           alive_n++;
       
-      if (i-1 > 0)
+      if (i-1 >= 0)
         if (m[i-1][j] == 1)
           alive_n++;
       
-      if (i-1 > 0 && j+1 < n)
+      if (i-1 >= 0 && j+1 < n)
         if (m[i-1][j+1] == 1)
           alive_n++;
       
-      if (j-1 > 0)
+      if (j-1 >= 0)
         if (m[i][j-1] == 1)
           alive_n++;
       
@@ -98,7 +98,7 @@ void apply_rules() {
         if (m[i][j+1] == 1)
           alive_n++;
       
-      if (i+1 < n && j-1 > 0)
+      if (i+1 < n && j-1 >= 0)
         if (m[i+1][j-1] == 1)
           alive_n++;
       
