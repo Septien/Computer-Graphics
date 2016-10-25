@@ -32,9 +32,11 @@ void setup() {
     }
     
     m[1][1] = 1;
-    /*m[2][1] = 1;
-    m[3][1] = 1;
-    m[1][2] = 1;*/
+    m[2][1] = 1;
+    m[2][2] = 1;
+    m[2][3] = 1;
+    m[3][2] = 1;
+    //m[1][2] = 1;
 //  noLoop();
 }
 
@@ -50,8 +52,8 @@ void grid() {
 //Display living cells
 void cells() {
   int i, j;
-  for (i = 1; i < n-1; i++)
-    for (j = 1; j < n-1; j++) {
+  for (i = 0; i < n; i++)
+    for (j = 0; j < n; j++) {
       if (m[i][j] == 1) {
         fill(alive);
         rect(i*l, j*l, l, l);
@@ -109,7 +111,7 @@ void apply_rules() {
           alive_n++;
       
       //Rule 1
-      if (alive_n < 2 && buffer[i][j] == 1)
+      if (alive_n < 2 /*&& buffer[i][j] == 1*/)
         buffer[i][j] = 0;    //Dead
       //Rule 2
       if ((alive_n == 2 || alive_n == 3) && m[i][j] == 1)
