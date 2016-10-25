@@ -87,9 +87,12 @@ class Circle {
     float dy = c.yc - yc;
     float distance = sqrt(dx*dx + dy*dy);
     float tan_x;
-    //0° <= x <= 45°
+    float theta;
+    
     if (distance <= c.r + r) {
+        theta = atan2(dy, dx);
         tan_x = (yc - c.yc) / (xc - c.xc);
+        //0° <= x <= 45°
         if (0 <= tan_x && tan_x <= 1 ) {
           vx *= -1;
           c.vx *= -1;
@@ -102,7 +105,7 @@ class Circle {
         }
       
         //0 >= x >= -45
-        if (0 >= tan_x && tan_x >= -1) {
+        if (0 > tan_x && tan_x >= -1) {
           vx *= -1;
           c.vx *= -1;
         }
