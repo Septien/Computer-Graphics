@@ -23,9 +23,9 @@ void setup() {
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++) {
         //Dead on the borders of the windows
-        if (i == 0 || i == n)
+        if (i == 0 || i == n-1)
           m[i][j] = 0;
-        else if (j == 0 || j == n)
+        else if (j == 0 || j == n-1)
           m[i][j] = 0;
         else
           m[i][j] = (int) random(0, 1.2);
@@ -57,6 +57,8 @@ void cells() {
       }
     }
 }
+
+
 
 void draw() {
   grid();
