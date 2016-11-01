@@ -6,7 +6,7 @@ void setup() {
 
 void drawLeftArm() {
   pushMatrix();
-    translate(12, 32);
+    translate(12, 32);    //Pivote
     rotate(radians(135));
     rect(-12, 0, 12, 32);
   popMatrix();
@@ -14,7 +14,7 @@ void drawLeftArm() {
 
 void drawRightArm() {
   pushMatrix();
-    translate(66, 32);
+    translate(66, 32);    //Pivote
     rotate(radians(-45));
     rect(0, 0, 12, 37);
   popMatrix();
