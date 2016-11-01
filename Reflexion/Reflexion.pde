@@ -44,12 +44,12 @@ void sh2DReflexionYX() {
     for (j = 0; j < height; j++) {
       c = get(i, j);
       if (c == color(255))
-        point(j + Tx, i + Ty);
+        point(j, i);
     }
 }
 
 void draw() {
-  triangle(50, 10, 10, 100, 90, 100);
+  triangle(width, height, 0, 0, 0, height);
   //sh2DReflexionX();
   //sh2DReflexionY();
   sh2DReflexionYX();
