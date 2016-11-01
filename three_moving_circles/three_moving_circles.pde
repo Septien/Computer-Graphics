@@ -82,7 +82,7 @@ class Circle {
   }
   
   /*Check if the circle collide with c*/
-  void collide(Circle c) {
+  void collide(Circle c, boolean c3) {
     float dx = c.xc - xc;
     float dy = c.yc - yc;
     float distance = sqrt(dx*dx + dy*dy);
@@ -95,25 +95,29 @@ class Circle {
         //0° <= x <= 45°
         if (0 <= tan_x && tan_x <= 1 ) {
           vx *= -1;
-          c.vx *= -1;
+          if (!c3)
+            c.vx *= -1;
         }
       
         //45° < x <= 90°
         if (tan_x > 1) {
           vy *= -1;
-          c.vy *= -1;
+          if (!c3)
+            c.vy *= -1;
         }
       
         //0 >= x >= -45
         if (0 > tan_x && tan_x >= -1) {
           vx *= -1;
-          c.vx *= -1;
+          if (!c3)
+            c.vx *= -1;
         }
       
         // -45 >= x >= -90
         if (tan_x < 1) {
           vy *= -1;
-          c.vy *= -1;
+          if (!c3)
+            c.vy *= -1;
         }
       }
   }
@@ -123,7 +127,9 @@ void draw() {
   background(0);
   c1.draw_circle();
   c1.move();
-  c1.collide(c2);
+  c1.collide(c2, false);
+  c1.collide(c3, true);
+  c2.collide(c3, true);
   c2.draw_circle();
   c2.move();
   c3.draw_circle();
