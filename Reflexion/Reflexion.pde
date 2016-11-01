@@ -1,7 +1,7 @@
 int Tx, Ty;
 
 void setup() {
-  size(600, 400);
+  size(400, 400);
   background(0);
   stroke(255);
   Tx = 300;
@@ -49,7 +49,7 @@ void sh2DReflexionYX() {
 }
 
 void draw() {
-  triangle(width, height, 0, 0, 0, height);
+  triangle(width, height, 0, 0, width, 0);
   //sh2DReflexionX();
   //sh2DReflexionY();
   sh2DReflexionYX();
