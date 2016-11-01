@@ -20,6 +20,7 @@ void setup() {
   l = 5;
   n = width/l;
   m = new int[n][n];
+  print(n);
 
   //Initialize status of cells
   for (i = 0; i < n; i++)
@@ -31,11 +32,22 @@ void setup() {
       m[i][j] = 0;
     }
     
-    m[40][40] = 1;
+    //Square one
+    m[0][4] = 1;
+    m[0][5] = 1;
+    m[1][4] = 1;
+    m[1][5] = 1;
+    //Square 2
+    m[78][2] = 1;
+    m[78][3] = 1;
+    m[79][2] = 1;
+    m[79][3] = 1;
+    
+    /*m[40][40] = 1;
     m[41][40] = 1;
     m[41][41] = 1;
     m[41][42] = 1;
-    m[42][41] = 1;
+    m[42][41] = 1;*/
     //m[1][2] = 1;
 //  noLoop();
 }
@@ -132,5 +144,5 @@ void draw() {
   grid();
   cells();
   apply_rules();
-  delay(100);
+  //delay(100);
 }
