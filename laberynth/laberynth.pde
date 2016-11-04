@@ -73,12 +73,12 @@ class Rob {
   void draw_rob() {
     pushMatrix();
       fill(outer_color);
-      rotate(radians(theta));
       translate(x, y);
       rect(0, 0, w, h);
       pushMatrix();
         fill(inner_color);
         translate(x+5, y+5);
+        rotate(radians(theta));
         rect(0, 0, w-10, h-40);
       popMatrix();
     popMatrix();
@@ -147,12 +147,12 @@ void keyPressed() {
       case UP:
         if (dir == up) {
           //Already oriented up. Translate up one unit
-          if (ix != 0) {
+          if (iy != 0) {
             //Not on the upper border
             board[ix][iy] = 2;      //Indicate that pass through the block
-            ix -= 1;
-            int x = r.get_x();
-            r.set_x(x-n);
+            iy -= 1;
+            int y = r.get_y();
+            r.set_y(y - m);
           }
         }
         else {
@@ -169,12 +169,12 @@ void keyPressed() {
       case DOWN:
         if (dir == down) {
           //If rob is already oriented down
-          if (ix != n) {
+          if (iy != n) {
             //Not on the lower bound
             board[ix][iy] = 2;
-            ix += 1;
-            int x = r.get_x();
-            r.set_x(x + n);
+            iy += 1;
+            int y = r.get_y();
+            r.set_y(y + m);
           }
           
         }
