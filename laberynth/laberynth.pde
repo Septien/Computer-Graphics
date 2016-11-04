@@ -25,6 +25,7 @@ class Rob {
   color outer_color;
   //Direction of Rob
   int dir;
+  float theta;
   
   Rob(int xo, int yo, int wo, int ho, color i_col, color o_color) {
     x = xo;
@@ -34,6 +35,7 @@ class Rob {
     inner_color = i_col;
     outer_color = o_color;
     dir = up;
+    theta = 0;
   }
   
   int get_dir() {
@@ -48,6 +50,7 @@ class Rob {
       pushMatrix();
         fill(inner_color);
         translate(x+5, y+5);
+        rotate(radians(theta));
         rect(0, 0, w-10, h-40);
       popMatrix();
     popMatrix();
