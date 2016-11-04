@@ -95,8 +95,10 @@ void setup() {
   stroke(0);
   
   //Divide each side by 10
-  n = width / 10;
-  m = height / 10;
+  n = 10;
+  m = 10;
+  print(n);
+  print(m);
   
   b_blocked = (int) random(3, 24);
   
@@ -107,7 +109,7 @@ void setup() {
     for (j = 0; j < m; j++)
       board[i][j] = (int) random(0, 1.2);
   board[0][0] = 0;
-  r = new Rob(0, 0, n , m, color(0, 255, 0), color(0, 0, 255));
+  r = new Rob(0, 0, width/n, height/m, color(0, 255, 0), color(0, 0, 255));
   
   ix = 0;
   iy = 0;
@@ -118,9 +120,9 @@ void setup() {
 void draw_laberynth() {
   int i, j;
   fill(255);
-  for (i = 0; i < width; i += n)
-    for (j = 0; j < height; j += m)
-      rect(i, j, n, m);
+  for (i = 0; i < width; i += width/n)
+    for (j = 0; j < height; j += height/m)
+      rect(i, j, width/n, height/m);
 }
 
 void draw_obstacles() {
@@ -129,7 +131,7 @@ void draw_obstacles() {
     for (j = 0; j < m; j++)
       if (board[i][j] == 1) {
         fill(block);
-        rect(i*n, j*m, n, m);
+        rect(i*(width/n), j*(height/m), width/n, height/m);
       }
 }
 
@@ -152,7 +154,7 @@ void keyPressed() {
             board[ix][iy] = 2;      //Indicate that pass through the block
             iy -= 1;
             int y = r.get_y();
-            r.set_y(y - m);
+            r.set_y(y - height/m);
           }
         }
         else {
@@ -169,12 +171,12 @@ void keyPressed() {
       case DOWN:
         if (dir == down) {
           //If rob is already oriented down
-          if (iy != n) {
+          if (iy != m) {
             //Not on the lower bound
             board[ix][iy] = 2;
             iy += 1;
             int y = r.get_y();
-            r.set_y(y + m);
+            r.set_y(y + height/m);
           }
           
         }
@@ -190,6 +192,9 @@ void keyPressed() {
         }
         break;
       case LEFT:
+        if (dir == left) {
+          
+        }
         break;
       case RIGHT:
         break;
