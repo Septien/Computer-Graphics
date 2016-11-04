@@ -21,6 +21,8 @@ class Rob {
   color inner_color;
   //color of the big square
   color outer_color;
+  //Direction of Rob
+  int dir;
   
   Rob(int xo, int yo, int wo, int ho, color i_col, color o_color) {
     x = xo;
@@ -29,6 +31,7 @@ class Rob {
     h = ho;
     inner_color = i_col;
     outer_color = o_color;
+    dir = up;
   }
   
   void draw_rob() {
