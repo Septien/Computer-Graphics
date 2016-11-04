@@ -48,6 +48,20 @@ void sh2DReflexionYX() {
     }
 }
 
+/**
+  Reflects around the line y = -x
+*/
+void sh2DReflexionY_X() {
+  int i, j;
+  color c;
+  for (i = 0; i < width; i++)
+    for (j = 0; j < height; j++) {
+      c = get(i, j);
+      if (c == color(255))
+        point(-j, -i);
+    }
+}
+
 void draw() {
   triangle(300, 20, 390, 100, 250, 110);
   //sh2DReflexionX();
