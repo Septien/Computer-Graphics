@@ -49,7 +49,7 @@ void sh2DReflexionYX() {
 }
 
 void draw() {
-  triangle(width, height, 0, 0, width, 0);
+  triangle(300, 20, 390, 100, 250, 110);
   //sh2DReflexionX();
   //sh2DReflexionY();
   sh2DReflexionYX();
