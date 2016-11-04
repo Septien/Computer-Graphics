@@ -154,6 +154,14 @@ void keyPressed() {
           }
         }
         else {
+          float theta = 0;
+          if (dir == left)
+            theta = 90;
+          else if (theta == down)
+            theta = 180;
+          else if (theta == right)
+            theta = -90;
+          r.set_theta(theta);
         }
         break;
       case DOWN:
