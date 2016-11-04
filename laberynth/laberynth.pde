@@ -54,6 +54,22 @@ class Rob {
     return dir;
   }
   
+  void set_x(int nx) {
+    x = nx;
+  }
+  
+  void set_y(int ny) {
+    y = ny;
+  }
+  
+  void set_theta(float ntheta) {
+    theta = ntheta;
+  }
+  
+  void set_dir(int ndir) {
+    dir = ndir;
+  }
+  
   void draw_rob() {
     pushMatrix();
       fill(outer_color);
