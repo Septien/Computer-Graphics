@@ -38,6 +38,18 @@ class Rob {
     theta = 0;
   }
   
+  int get_x() {
+    return x;
+  }
+  
+  int get_y() {
+    return y;
+  }
+  
+  float get_theta() {
+    return theta; 
+  }
+  
   int get_dir() {
     return dir;
   }
