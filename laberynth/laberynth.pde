@@ -4,14 +4,16 @@ int n, m;
 boolean blocked = true;
 //Number of blocks blocked
 int b_blocked;
+//Color of the blocks
+color block = color(255, 0, 0);
 
 void setup() {
   int i, j;
   int count = 0;
   
   size(900, 500);
-  background(0);
-  stroke(255);
+  background(255);
+  stroke(0);
   
   //Divide each side by 10
   n = width / 10;
@@ -31,6 +33,7 @@ void setup() {
       else
         board[i][j] = 0;
     }
+    noLoop();
 }
 
 void draw_laberynth() {
@@ -38,6 +41,16 @@ void draw_laberynth() {
   for (i = 0; i < width; i += n)
     for (j = 0; j < height; j += m)
       rect(i, j, n, m);
+}
+
+void draw_obstacles() {
+  int i, j;
+  for (i = 0; i < n; i++)
+    for (j = 0; j < m; j++)
+      if (board[i][j] == 1) {
+        fill(block);
+        rect(i*n, j*m, n, m);
+      }
 }
 
 void draw() {
