@@ -74,12 +74,14 @@ class Rob {
   void draw_rob() {
     pushMatrix();
       fill(outer_color);
+      translate(w/2, h/2);
       translate(x, y);
+      rotate(radians(theta));
+      translate(-w/2, -h/2);
       rect(0, 0, w, h);
       pushMatrix();
         fill(inner_color);
         translate(x+5, y+5);
-        rotate(radians(theta));
         rect(0, 0, w-10, h-40);
       popMatrix();
     popMatrix();
@@ -169,11 +171,11 @@ void keyPressed() {
         }
         else {
           if (dir == left)
-            theta = 90;
+            theta = -90;
           else if (theta == down)
             theta = 180;
           else if (theta == right)
-            theta = -90;
+            theta = 90;
           r.set_theta(theta);
           r.set_dir(up);
         }
@@ -193,9 +195,9 @@ void keyPressed() {
           if (dir == up)
             theta = 180.0;
           else if (dir == left)
-            theta = -90.0;
-          else if (dir == right)
             theta = 90.0;
+          else if (dir == right)
+            theta = -90.0;
           r.set_theta(theta);
           r.set_dir(down);
         }
@@ -231,9 +233,9 @@ void keyPressed() {
         }
         else {
             if (dir == up)
-              theta = 90.0;
-            else if (dir == down)
               theta = -90.0;
+            else if (dir == down)
+              theta = 90.0;
             else if (dir == left)
               theta = 180.0;
             r.set_theta(theta);
