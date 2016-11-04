@@ -26,12 +26,8 @@ void setup() {
   
   for (i = 0; i < n; i++)
     for (j = 0; j < m; j++) {
-      if (count < b_blocked) {
-        board[i][j] = (int) random(0, 1.2);
-        count++;
-      }
-      else
-        board[i][j] = 0;
+      board[i][j] = (int) random(0, 1.2);
+      count++;
     }
     noLoop();
 }
@@ -54,4 +50,6 @@ void draw_obstacles() {
 }
 
 void draw() {
+  draw_laberynth();
+  draw_obstacles();
 }
