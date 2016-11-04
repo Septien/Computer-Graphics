@@ -140,27 +140,28 @@ void draw() {
 
 void keyPressed() {
   if (key == CODED) {
-    if (keyCode == UP) {
-      int dir = r.get_dir(); 
-      if (dir == up) {
-        //Already oriented up. Translate up one unit
-        if (ix != 0) {
-          //Not on the upper border
-          board[ix][iy] = 2;      //Indicate that pass through the block
-          ix += 1;
-          pushMatrix();
-            translate(n, 0);
-          popMatrix();
+    switch (keyCode) {
+      case UP:
+        int dir = r.get_dir(); 
+        if (dir == up) {
+          //Already oriented up. Translate up one unit
+          if (ix != 0) {
+            //Not on the upper border
+            board[ix][iy] = 2;      //Indicate that pass through the block
+            ix += 1;
+            int x = r.get_x();
+            r.set_x(x+n);
+          }
         }
-      }
+        else {
+        }
+        break;
+      case DOWN:
+        break;
+      case LEFT:
+        break;
+      case RIGHT:
+        break;
     }
-    else if (keyCode == DOWN)
-      ;
-    else if (keyCode == LEFT)
-      ;
-    else if (keyCode == RIGHT)
-      ;
-    else
-      ;
   }
 }
