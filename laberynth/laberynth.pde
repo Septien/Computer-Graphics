@@ -36,6 +36,10 @@ class Rob {
     dir = up;
   }
   
+  int get_dir() {
+    return dir;
+  }
+  
   void draw_rob() {
     pushMatrix();
       fill(outer_color);
