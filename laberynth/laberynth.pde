@@ -35,10 +35,16 @@ class Rob {
   }
   
   void draw_rob() {
-    fill(outer_color);
-    rect(x, y, w, h);
-    fill(inner_color);
-    rect(x-5, y-5, w-5, h-5);
+    pushMatrix();
+      fill(outer_color);
+      translate(x, y);
+      rect(0, 0, w, h);
+      pushMatrix();
+        fill(inner_color);
+        translate(x-5, y-5);
+        rect(0, 0, w-5, h-5);
+      popMatrix();
+    popMatrix();
   }
 }
 
