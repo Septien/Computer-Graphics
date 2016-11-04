@@ -149,7 +149,7 @@ void keyPressed() {
       case UP:
         if (dir == up) {
           //Already oriented up. Translate up one unit
-          if (iy != 0) {
+          if (iy > 0) {
             //Not on the upper border
             board[ix][iy] = 2;      //Indicate that pass through the block
             iy -= 1;
@@ -171,14 +171,13 @@ void keyPressed() {
       case DOWN:
         if (dir == down) {
           //If rob is already oriented down
-          if (iy != m) {
+          if (iy < m-1) {
             //Not on the lower bound
             board[ix][iy] = 2;
             iy += 1;
             int y = r.get_y();
             r.set_y(y + height/m);
           }
-          
         }
         else {
           if (dir == up)
