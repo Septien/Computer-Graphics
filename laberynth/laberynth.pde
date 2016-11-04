@@ -213,6 +213,27 @@ void keyPressed() {
           }
         break;
       case RIGHT:
+        if (dir == right) {
+          if (ix < n-1) {
+            board[ix][iy] = 2;
+            ix += 1;
+            int x = r.get_x();
+            print(x);
+            r.set_x(x + (width/n));
+            print(r.get_x());
+          }
+        }
+        else {
+            print(ix);
+            if (dir == up)
+              theta = 90.0;
+            else if (dir == down)
+              theta = -90.0;
+            else if (dir == left)
+              theta = 180.0;
+            r.set_theta(theta);
+            r.set_dir(right);
+          }
         break;
     }
   }
