@@ -73,12 +73,12 @@ class Rob {
   void draw_rob() {
     pushMatrix();
       fill(outer_color);
+      rotate(radians(theta));
       translate(x, y);
       rect(0, 0, w, h);
       pushMatrix();
         fill(inner_color);
         translate(x+5, y+5);
-        rotate(radians(theta));
         rect(0, 0, w-10, h-40);
       popMatrix();
     popMatrix();
@@ -117,6 +117,7 @@ void setup() {
 
 void draw_laberynth() {
   int i, j;
+  fill(255);
   for (i = 0; i < width; i += n)
     for (j = 0; j < height; j += m)
       rect(i, j, n, m);
@@ -162,6 +163,7 @@ void keyPressed() {
           else if (theta == right)
             theta = -90;
           r.set_theta(theta);
+          r.set_dir(up);
         }
         break;
       case DOWN:
@@ -184,6 +186,7 @@ void keyPressed() {
           else if (dir == right)
             theta = 90.0;
           r.set_theta(theta);
+          r.set_dir(down);
         }
         break;
       case LEFT:
