@@ -6,7 +6,7 @@ boolean blocked = true;
 int b_blocked;
 //Color of the blocks
 color block = color(255, 0, 0);
-color path = color(0, 255, 0);
+color path = color(0, 255, 255);
 //Constants to define direction
 final int up = 1;
 final int down = 2;
