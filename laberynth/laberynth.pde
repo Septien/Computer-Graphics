@@ -6,6 +6,11 @@ boolean blocked = true;
 int b_blocked;
 //Color of the blocks
 color block = color(255, 0, 0);
+//Constants to define direction
+final int up = 1;
+final int down = 2;
+final int left = 3;
+final int right = 4;
 
 class Rob {
   //Upper left corner
