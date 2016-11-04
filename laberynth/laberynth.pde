@@ -80,6 +80,7 @@ void setup() {
   
   ix = 0;
   iy = 0;
+  
   noLoop();
 }
 
@@ -108,8 +109,20 @@ void draw() {
 
 void keyPressed() {
   if (key == CODED) {
-    if (keyCode == UP) 
-      ;
+    if (keyCode == UP) {
+      int dir = r.get_dir(); 
+      if (dir == up) {
+        //Already oriented up. Translate up one unit
+        if (ix != 0) {
+          //Not on the upper border
+          board[ix][iy] = 2;      //Indicate that pass through the block
+          ix += 1;
+          pushMatrix();
+            translate(n, 0);
+          popMatrix();
+        }
+      }
+    }
     else if (keyCode == DOWN)
       ;
     else if (keyCode == LEFT)
