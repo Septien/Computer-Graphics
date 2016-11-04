@@ -139,10 +139,10 @@ void draw() {
 }
 
 void keyPressed() {
+  int dir = r.get_dir();
   if (key == CODED) {
     switch (keyCode) {
       case UP:
-        int dir = r.get_dir(); 
         if (dir == up) {
           //Already oriented up. Translate up one unit
           if (ix != 0) {
@@ -165,6 +165,16 @@ void keyPressed() {
         }
         break;
       case DOWN:
+        if (dir == down) {
+          //If rob is already oriented down
+          if (ix != n) {
+            //Not on the lower bound
+            board[ix][iy] = 2;
+            ix += 1;
+            int x = r.get_x();
+            r.set_x(x + n);
+          }
+        }
         break;
       case LEFT:
         break;
