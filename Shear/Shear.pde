@@ -30,5 +30,6 @@ void sh2DShearY(int shy) {
 
 void draw() {
   rect(10, 10, 50, 20);
-  sh2DShearX(2);
+  //sh2DShearX(2);
+  sh2DShearY(2);
 }
