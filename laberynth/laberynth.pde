@@ -11,6 +11,8 @@ final int up = 1;
 final int down = 2;
 final int left = 3;
 final int right = 4;
+//Initial position of Rob
+int ix, iy;
 
 class Rob {
   //Upper left corner
@@ -53,7 +55,7 @@ Rob r;
 void setup() {
   int i, j;
   
-  size(900, 500);
+  size(500, 500);
   background(255);
   stroke(0);
   
@@ -71,6 +73,9 @@ void setup() {
       board[i][j] = (int) random(0, 1.2);
   board[0][0] = 0;
   r = new Rob(0, 0, n , m, color(0, 255, 0), color(0, 0, 255));
+  
+  ix = 0;
+  iy = 0;
   noLoop();
 }
 
