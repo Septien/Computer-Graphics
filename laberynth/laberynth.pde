@@ -207,7 +207,7 @@ void keyPressed() {
         if (dir == up)
           theta -= 90.0;
         else if (dir == down)
-          theta -= 90.0;
+          theta += 90.0;
         else if (dir == right)
           theta += 180.0;
         r.set_theta(theta);
