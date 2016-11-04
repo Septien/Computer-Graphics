@@ -97,8 +97,6 @@ void setup() {
   //Divide each side by 10
   n = 10;
   m = 10;
-  print(n);
-  print(m);
   
   b_blocked = (int) random(3, 24);
   
@@ -196,9 +194,7 @@ void keyPressed() {
             board[ix][iy] = 2;
             ix -= 1;
             int x = r.get_x();
-            print(x);
             r.set_x(x - (width/n));
-            print(r.get_x());
           }
         }
         else {
@@ -218,13 +214,10 @@ void keyPressed() {
             board[ix][iy] = 2;
             ix += 1;
             int x = r.get_x();
-            print(x);
             r.set_x(x + (width/n));
-            print(r.get_x());
           }
         }
         else {
-            print(ix);
             if (dir == up)
               theta = 90.0;
             else if (dir == down)
