@@ -112,7 +112,7 @@ void setup() {
   ix = 0;
   iy = 0;
   
-  noLoop();
+  //noLoop();
 }
 
 void draw_laberynth() {
@@ -140,6 +140,7 @@ void draw() {
 
 void keyPressed() {
   int dir = r.get_dir();
+  float theta = 0;
   if (key == CODED) {
     switch (keyCode) {
       case UP:
@@ -154,7 +155,6 @@ void keyPressed() {
           }
         }
         else {
-          float theta = 0;
           if (dir == left)
             theta = 90;
           else if (theta == down)
@@ -174,6 +174,16 @@ void keyPressed() {
             int x = r.get_x();
             r.set_x(x + n);
           }
+          
+        }
+        else {
+          if (dir == up)
+            theta = 180.0;
+          else if (dir == left)
+            theta = -90.0;
+          else if (dir == right)
+            theta = 90.0;
+          r.set_theta(theta);
         }
         break;
       case LEFT:
