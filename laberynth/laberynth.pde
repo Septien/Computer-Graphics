@@ -148,9 +148,9 @@ void keyPressed() {
           if (ix != 0) {
             //Not on the upper border
             board[ix][iy] = 2;      //Indicate that pass through the block
-            ix += 1;
+            ix -= 1;
             int x = r.get_x();
-            r.set_x(x+n);
+            r.set_x(x-n);
           }
         }
         else {
