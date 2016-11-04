@@ -7,9 +7,28 @@ int b_blocked;
 //Color of the blocks
 color block = color(255, 0, 0);
 
+class Rob {
+  //Upper left corner
+  int x, y;
+  //Width and height
+  int w, h;
+  //color of the small square
+  color inner_color;
+  //color of the big square
+  color outer_color;
+  
+  Rob(int xo, int yo, int wo, int ho, color i_col, color o_color) {
+    x = xo;
+    y = yo;
+    w = wo;
+    h = ho;
+    inner_color = i_col;
+    outer_color = o_color;
+  }
+}
+
 void setup() {
   int i, j;
-  int count = 0;
   
   size(900, 500);
   background(255);
@@ -25,11 +44,10 @@ void setup() {
   board = new int[n][m];
   
   for (i = 0; i < n; i++)
-    for (j = 0; j < m; j++) {
+    for (j = 0; j < m; j++)
       board[i][j] = (int) random(0, 1.2);
-      count++;
-    }
-    noLoop();
+  
+  noLoop();
 }
 
 void draw_laberynth() {
