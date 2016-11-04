@@ -78,3 +78,18 @@ void draw() {
   draw_laberynth();
   draw_obstacles();
 }
+
+void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == UP) 
+      ;
+    else if (keyCode == DOWN)
+      ;
+    else if (keyCode == LEFT)
+      ;
+    else if (keyCode == RIGHT)
+      ;
+    else
+      ;
+  }
+}
