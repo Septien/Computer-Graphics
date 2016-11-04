@@ -175,9 +175,9 @@ void keyPressed() {
       }
       break;
     case DOWN:
-      if (dir == down && board[ix][iy + 1] != 1) {
+      if (dir == down) {
         //If rob is already oriented down
-        if (iy < m-1) {
+        if (iy < m-1 && board[ix][iy + 1] != 1) {
           //Not on the lower bound
           board[ix][iy] = 2;
           iy += 1;
