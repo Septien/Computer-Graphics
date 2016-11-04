@@ -19,4 +19,5 @@ void sh2DShearX(int shx) {
 
 void draw() {
   rect(10, 10, 50, 20);
+  sh2DShearX(2);
 }
