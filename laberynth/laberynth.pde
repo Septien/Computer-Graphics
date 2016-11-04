@@ -6,6 +6,7 @@ boolean blocked = true;
 int b_blocked;
 //Color of the blocks
 color block = color(255, 0, 0);
+color path = color(0, 255, 0);
 //Constants to define direction
 final int up = 1;
 final int down = 2;
@@ -133,9 +134,20 @@ void draw_obstacles() {
       }
 }
 
+void draw_path() {
+  int i, j;
+  for (i = 0; i < n; i++)
+    for (j = 0; j < m; j++)
+      if (board[i][j] == 2) {
+        fill(path);
+        rect(i*(width/n), j*(height/m), width/n, height/m);
+      }
+}
+
 void draw() {
   draw_laberynth();
   draw_obstacles();
+  draw_path();
   r.draw_rob();
 }
 
