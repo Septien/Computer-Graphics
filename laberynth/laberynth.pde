@@ -25,6 +25,13 @@ class Rob {
     inner_color = i_col;
     outer_color = o_color;
   }
+  
+  void draw_rob() {
+    fill(outer_color);
+    rect(x, y, w, h);
+    fill(inner_color);
+    rect(x-5, y-5, w-5, h-5);
+  }
 }
 
 void setup() {
