@@ -94,7 +94,7 @@ void setup() {
   background(255);
   stroke(0);
   
-  //Divide each side by 10
+  //10x10 grid
   n = 10;
   m = 10;
   
@@ -147,7 +147,7 @@ void keyPressed() {
       case UP:
         if (dir == up) {
           //Already oriented up. Translate up one unit
-          if (iy > 0) {
+          if (iy > 0 && board[ix][iy - 1] != 1) {
             //Not on the upper border
             board[ix][iy] = 2;      //Indicate that pass through the block
             iy -= 1;
@@ -167,7 +167,7 @@ void keyPressed() {
         }
         break;
       case DOWN:
-        if (dir == down) {
+        if (dir == down && board[ix][iy + 1] != 1) {
           //If rob is already oriented down
           if (iy < m-1) {
             //Not on the lower bound
@@ -190,7 +190,7 @@ void keyPressed() {
         break;
       case LEFT:
         if (dir == left) {
-          if (ix > 0) {
+          if (ix > 0 && board[ix - 1][iy] != 1) {
             board[ix][iy] = 2;
             ix -= 1;
             int x = r.get_x();
@@ -210,7 +210,7 @@ void keyPressed() {
         break;
       case RIGHT:
         if (dir == right) {
-          if (ix < n-1) {
+          if (ix < n-1 && board[ix + 1][iy] != 1) {
             board[ix][iy] = 2;
             ix += 1;
             int x = r.get_x();
