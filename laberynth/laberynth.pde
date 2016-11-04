@@ -41,12 +41,14 @@ class Rob {
       rect(0, 0, w, h);
       pushMatrix();
         fill(inner_color);
-        translate(x-5, y-5);
-        rect(0, 0, w-5, h-5);
+        translate(x+5, y+5);
+        rect(0, 0, w-10, h-40);
       popMatrix();
     popMatrix();
   }
 }
+
+Rob r;
 
 void setup() {
   int i, j;
@@ -67,7 +69,8 @@ void setup() {
   for (i = 0; i < n; i++)
     for (j = 0; j < m; j++)
       board[i][j] = (int) random(0, 1.2);
-  
+  board[0][0] = 0;
+  r = new Rob(0, 0, n , m, color(0, 255, 0), color(0, 0, 255));
   noLoop();
 }
 
@@ -91,6 +94,7 @@ void draw_obstacles() {
 void draw() {
   draw_laberynth();
   draw_obstacles();
+  r.draw_rob();
 }
 
 void keyPressed() {
