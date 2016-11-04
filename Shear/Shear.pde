@@ -17,6 +17,17 @@ void sh2DShearX(int shx) {
     }
 }
 
+void sh2DShearY(int shy) {
+  int i, j;
+  color c;
+  for (i = 0; i < width; i++)
+    for (j = 0; j < height; j++) {
+      c = get(i, j);
+      if (c == color(255))
+        point(i, j + i*shy);
+    }
+}
+
 void draw() {
   rect(10, 10, 50, 20);
   sh2DShearX(2);
