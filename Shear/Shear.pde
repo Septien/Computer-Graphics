@@ -11,5 +11,5 @@ void sh2DShearX(int shx) {
 }
 
 void draw() {
-  rect(10, 10, 50, 50);
+  rect(10, 10, 50, 20);
 }
