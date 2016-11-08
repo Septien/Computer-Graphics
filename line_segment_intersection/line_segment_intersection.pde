@@ -10,6 +10,7 @@ class Punto {
 void setup() {
   size(500, 500);
   background(255);
+  noLoop();
 }
 
 boolean in_range(float n) {
@@ -26,7 +27,7 @@ boolean intersection(Punto A, Punto B, Punto C, Punto D, Punto P) {
   dem_r = (A.y - C.y) * (D.x - C.x) - (A.x - C.x) * (D.y - C.y);
   dem_s = (A.y - C.y) * (B.x - A.x) - (A.x - C.x) * (B.y - A.y);
   num = (B.x - A.y) * (D.y - C.y) - (B.y - A.y) * (D.x - C.x);
-  
+
   if (dem_r == 0 || dem_r == 1)
     return false;
   r = dem_r / num;
@@ -36,7 +37,7 @@ boolean intersection(Punto A, Punto B, Punto C, Punto D, Punto P) {
     return false;
   if ( !in_range(s) )
     return false;
-    
+
   P.x = A.x + r * (B.x - A.x);
   P.y = A.y + r * (B.y - A.y);
   return true;
@@ -44,15 +45,16 @@ boolean intersection(Punto A, Punto B, Punto C, Punto D, Punto P) {
 
 void draw() {
    Punto A, B, C, D, P;
-   A = new Punto(width - 10, 10);
-   B = new Punto(width - 10, height - 10);
-   C = new Punto(width - 10, 10);
-   D = new Punto(10, height - 10);
+   A = new Punto(width/2, height/2);
+   B = new Punto(width, 0);
+   C = new Punto(250, 250);
+   D = new Punto(0, height); 
    P = new Punto(0, 0);
 
-  strokeWeight(1);
+   strokeWeight(1);
    stroke(0, 255, 0);
    line(A.x, A.y, B.x, B.y);
+   stroke(255, 0, 0);
    line(C.x, C.y, D.x, D.y);
    
    stroke(0, 0, 255);
