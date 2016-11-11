@@ -94,6 +94,7 @@ class Rectangulo {
 }
 
 Rectangulo rect;
+Segmento seg;
 
 void setup() {
   size(500, 500);
@@ -105,10 +106,15 @@ void setup() {
   
   rect = new Rectangulo(p, r);
   rect.draw_rect();
-  
+  p.x = 80;
+  p.y = 290;
+  r.x = 250;
+  r.y = 110;
+  seg = new Segmento(p, r);
+  seg.draw_segment();
   noLoop();
 }
 
 void draw() {
-
+  rect.recortar(seg);
 }
