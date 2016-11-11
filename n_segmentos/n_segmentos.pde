@@ -23,7 +23,7 @@ class Segmento {
 
 Segmento[] seg;
 int n;
-final int max_range = 50;
+final int max_range = 10;
 
 void setup() {
   int i;
@@ -70,6 +70,8 @@ boolean intersection(Punto A, Punto B, Punto C, Punto D, Punto P) {
   if ( !in_range(s) )
     return false;
 
+  P.x = 0;
+  P.y = 0;
   P.x = A.x + r * (B.x - A.x);
   P.y = A.y + r * (B.y - A.y);
   return true;
@@ -81,9 +83,10 @@ void compute_intersections(Segmento[] seg, int n) {
   stroke(0, 0, 255);
   for (i = 0; i < n; i++)
     for (j = i+1; j < n; j++) {
-      Punto p = new Punto(0, 0);
-      if (intersection(seg[i].a, seg[i].b, seg[j].a, seg[j].b, p))
-        point(p.x, p.y);
+      Punto p = new Punto(0, 0); //<>//
+      //if (i != j)
+        if (intersection(seg[i].a, seg[i].b, seg[j].a, seg[j].b, p))
+          point(p.x, p.y);
     }
 }
 
