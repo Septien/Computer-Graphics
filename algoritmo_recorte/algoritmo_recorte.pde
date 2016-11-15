@@ -68,6 +68,18 @@ class Rectangulo {
     line(S.x, S.y, P.x, P.y);
   }
   
+  //Dentro del rectangulo
+  boolean dentro(Punto a) {
+    Punto centro;
+    centro = new Punto((P.x + R.x)/2, (P.y + R.y)/2);
+    //Calcula el tamaño de los lados del rectangulo
+    float l1 = dist(P.x, P.y, Q.x, Q.y);
+    float l2 = dist(P.x, P.y, S.x, S.y);
+    if (abs(a.x - centro.x) < l1/2 && abs(a.y - centro.y) < l2/2)
+      return true;
+    return false;
+  }
+  
   void recortar(Segmento s) {
     Punto p = new Punto(0,0);
     strokeWeight(5);
