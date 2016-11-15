@@ -7,8 +7,8 @@ boolean in_range(float n) {
 boolean intersection(Punto Q, Punto R, Punto A, Punto B, Punto P) {
   float t, tp;
   
-  t = ( ((A.y - Q.y) / (R.y - Q.y)) - ((A.x - Q.x) / (R.x - Q.x)) ) / ( ((B.x - A.x) / (R.x - Q.x)) / ((B.y - A.y) / (R.y - Q.y)) );
   tp = ( ((Q.y - A.y) / (B.y - A.y)) - ((Q.x - A.x) / (B.x - A.x)) ) / ( ((R.x - Q.x) / (B.x - A.x)) - ((R.y - Q.y) / (B.y - A.y)) );
+  t = (Q.x - A.x + tp * (R.x - Q.x)) / (B.x - A.x);
   
   if (Float.isNaN(t))
     return false;
