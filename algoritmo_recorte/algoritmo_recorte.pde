@@ -36,13 +36,15 @@ class Punto {
 class Segmento {
   Punto a;
   Punto b;
+  color c;
   Segmento(Punto na, Punto nb) {
     a = na;
     b = nb;
+    c = color(random(0, 255), random(0, 255), random(0, 255));
   }
   
   void draw_segment() {
-    stroke(random(0, 255), random(0, 255), random(0, 255));
+    stroke(c);
     line(a.x, a.y, b.x, b.y);
   }
 }
