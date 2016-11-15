@@ -4,27 +4,23 @@ boolean in_range(float n) {
   return false;
 }
 
-boolean intersection(Punto A, Punto B, Punto C, Punto D, Punto P) {
-  float r, s;
-  float dem_r, dem_s;
-  float num;
+boolean intersection(Punto Q, Punto R, Punto A, Punto B, Punto P) {
+  float t, tp;
   
-  dem_r = (A.y - C.y) * (D.x - C.x) - (A.x - C.x) * (D.y - C.y);
-  dem_s = (A.y - C.y) * (B.x - A.x) - (A.x - C.x) * (B.y - A.y);
-  num = (B.x - A.y) * (D.y - C.y) - (B.y - A.y) * (D.x - C.x);
-
-  if (dem_r == 0 || dem_r == 1)
+  t = ( ((A.y - Q.y) / (R.y - Q.y)) - ((A.x - Q.x) / (R.x - Q.x)) ) / ( ((B.x - A.x) / (R.x - Q.x)) / ((B.y - A.y) / (R.y - Q.y)) );
+  tp = ( ((Q.y - A.y) / (B.y - A.y)) - ((Q.x - A.x) / (B.x - A.x)) ) / ( ((R.x - Q.x) / (B.x - A.x)) - ((R.y - Q.y) / (B.y - A.y)) );
+  
+  if (Float.isNaN(t))
     return false;
-  r = dem_r / num;
-  s = dem_s / num;
-
-  if ( !in_range(r) )
+  if (Float.isNaN(tp))
     return false;
-  if ( !in_range(s) )
+  if (!in_range(t))
     return false;
-
-  P.x = A.x + r * (B.x - A.x);
-  P.y = A.y + r * (B.y - A.y);
+  if (!in_range(tp))
+    return false;
+    
+  P.x = A.x + t * (B.x - A.x);
+  P.y = A.y + t * (B.y - A.y);
   return true;
 }
 
@@ -72,6 +68,7 @@ class Rectangulo {
   
   void recortar(Segmento s) {
     Punto p = new Punto(0,0);
+    strokeWeight(5);
     if ( intersection(P, Q, s.a, s.b, p) ) {
       point(p.x, p.y);
     }
@@ -116,5 +113,5 @@ void setup() {
 }
 
 void draw() {
-  rect.recortar(seg);
+  rect.recortar(seg); //<>//
 }
