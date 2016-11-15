@@ -42,6 +42,10 @@ class Segmento {
     b = nb;
     c = color(random(0, 255), random(0, 255), random(0, 255));
   }
+
+  void set_color(color nc) {
+    c = nc;
+  }
   
   void draw_segment() {
     stroke(c);
