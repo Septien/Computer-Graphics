@@ -86,12 +86,12 @@ class Rectangulo {
     return false;
   }
   
-  void recortar(Segmento s) {
+  boolean recortar(Segmento s) {
     Punto p = new Punto(0,0);
     strokeWeight(5);
     //Segment complety inside of rectangle
     if (dentro(s.a) && dentro(s.b))
-      return;
+      return false;
     
     //Points of segment outside of box
     else if (!dentro(s.a) && !dentro(s.b)) {
@@ -149,6 +149,7 @@ class Rectangulo {
       if ( intersection(S, P, s.a, s.b, p) )
         s.a = p;
     }
+    return true;
   }
 }
 
@@ -186,7 +187,7 @@ void mousePressed() {
 }
 
 void mouseReleased() {
+  int i;
   r.x = mouseX;
-  r.y = mouseY;
-  rect = new Rectangulo(p, r);
+  r.y = mouseY; 
 }
