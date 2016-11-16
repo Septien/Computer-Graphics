@@ -158,6 +158,7 @@ Rectangulo rect;
 Segmento[] seg;
 int n;
 Punto p, r;
+boolean r_created;
 
 void setup() {
   int i;
@@ -176,10 +177,19 @@ void setup() {
     seg[i] = new Segmento(p, r);
     seg[i].draw_segment();
   }
+  r_created = false;
 }
 
 void draw() {
-   //<>//
+  int i;
+  if (r_created) {
+    background(backg);
+    rect.draw_rect();
+    for (i = 0; i < n; i++) {
+      if (rect.recortar(seg[i]))
+        seg[i].draw_segment();
+    }
+  }
 }
 
 void mousePressed() {
@@ -188,14 +198,8 @@ void mousePressed() {
 }
 
 void mouseReleased() {
-  int i;
   r.x = mouseX;
   r.y = mouseY;
   rect = new Rectangulo(p, r);  
-  background(backg);
-  rect.draw_rect();
-  for (i = 0; i < n; i++) {
-    if (rect.recortar(seg[i]))
-      seg[i].draw_segment();
-  }
+  r_created = true;
 }
