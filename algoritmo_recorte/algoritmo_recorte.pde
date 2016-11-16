@@ -154,14 +154,26 @@ class Rectangulo {
 
 Rectangulo rect;
 Segmento[] seg;
+int n;
 
 void setup() {
+  int i;
   size(500, 500);
   background(backg);
   
   Punto p, r;
-  p = new Punto(100, 100);
-  r = new Punto(300, 300);
+  p = new Punto(0, 0);
+  r = new Punto(0, 0);
+  n = 20;
+  seg = new Segmento[n];
+  for (i = 0; i < n; i++) {
+    p.x = random(0, width);
+    p.y = random(0, height);
+    r.x = random(0, width);
+    r.y = random(0, height);
+    seg[i] = new Segmento(p, r);
+    seg[i].draw_segment();
+  }
   
   rect = new Rectangulo(p, r);
   rect.draw_rect();
