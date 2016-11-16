@@ -1,3 +1,5 @@
+color backg = color(255);
+
 boolean in_range(float n) {
   if ( 0 <= n && n <= 1)
     return true;
@@ -87,25 +89,66 @@ class Rectangulo {
   void recortar(Segmento s) {
     Punto p = new Punto(0,0);
     strokeWeight(5);
-    if ( intersection(P, Q, s.a, s.b, p) ) {
-      point(p.x, p.y);
+    //Segment complety inside of rectangle
+    if (dentro(s.a) && dentro(s.b))
+      return;
+    
+    //Points of segment outside of box
+    else if (!dentro(s.a) && !dentro(s.b)) {
+      boolean a = false;
+      if ( intersection(P, Q, s.a, s.b, p) ) {
+        s.a = p;
+        a = true;
+      }
+      if ( intersection(Q, R, s.a, s.b, p) ) {
+        if (!a) {
+          s.a = p;
+          a = true;
+        }
+        else
+          s.b = p;
+      }
+       
+      if ( intersection(R, S, s.a, s.b, p) ) {
+        if (!a) {
+          s.a = p;
+          a = true;
+        }
+        else
+          s.b = p;
+      }
+      
+      if ( intersection(S, P, s.a, s.b, p) ) {
+        if (!a) {
+          s.a = p;
+          a = true;
+        }
+        else
+          s.b = p;
+      }
     }
-    p.x = 0;
-    p.y = 0;
-    if ( intersection(Q, R, s.a, s.b, p) ) {
-      point(p.x, p.y);
+    
+    else if (dentro(s.a)) {
+      if ( intersection(P, Q, s.a, s.b, p) )
+        s.b = p;
+      if ( intersection(Q, R, s.a, s.b, p) )
+        s.b = p;
+      if ( intersection(R, S, s.a, s.b, p) )
+        s.b = p;
+      if ( intersection(S, P, s.a, s.b, p) )
+        s.b = p;
     }
-    p.x = 0;
-    p.y = 0;
-    if ( intersection(R, S, s.a, s.b, p) ) {
-      point(p.x, p.y);
+    
+    else if (dentro(s.b)) {
+      if ( intersection(P, Q, s.a, s.b, p) )
+        s.a = p;
+      if ( intersection(Q, R, s.a, s.b, p) )
+        s.a = p;
+      if ( intersection(R, S, s.a, s.b, p) )
+        s.a = p;
+      if ( intersection(S, P, s.a, s.b, p) )
+        s.a = p;
     }
-    p.x = 0;
-    p.y = 0;
-    if ( intersection(S, P, s.a, s.b, p) ) {
-      point(p.x, p.y);
-    }
-  }
 }
 
 Rectangulo rect;
@@ -113,7 +156,7 @@ Segmento seg;
 
 void setup() {
   size(500, 500);
-  background(255);
+  background(backg);
   
   Punto p, r;
   p = new Punto(100, 100);
