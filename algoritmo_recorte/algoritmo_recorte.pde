@@ -155,13 +155,13 @@ class Rectangulo {
 Rectangulo rect;
 Segmento[] seg;
 int n;
+Punto p, r;
 
 void setup() {
   int i;
   size(500, 500);
   background(backg);
   
-  Punto p, r;
   p = new Punto(0, 0);
   r = new Punto(0, 0);
   n = 20;
@@ -174,12 +174,19 @@ void setup() {
     seg[i] = new Segmento(p, r);
     seg[i].draw_segment();
   }
-  
-  rect = new Rectangulo(p, r);
-  rect.draw_rect();
-  noLoop();
 }
 
 void draw() {
    //<>//
+}
+
+void mousePressed() {
+  p.x = mouseX;
+  p.y = mouseY;
+}
+
+void mouseReleased() {
+  r.x = mouseX;
+  r.y = mouseY;
+  rect = new Rectangulo(p, r);
 }
