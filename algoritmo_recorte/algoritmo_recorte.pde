@@ -60,14 +60,17 @@ class Rectangulo {
   Punto Q;
   Punto R;
   Punto S;
+  color c;
   Rectangulo(Punto p, Punto r) {
     P = new Punto(p.x, p.y);
     R = new Punto(r.x, r.y);
     Q = new Punto(r.x, p.y);
     S = new Punto(p.x, r.y);
+    c = color(random(0,255), random(0,255), random(0,255));
   }
   
   void draw_rect() {
+    stroke(c);
     line(P.x, P.y, Q.x, Q.y);
     line(Q.x, Q.y, R.x, R.y);
     line(R.x, R.y, S.x, S.y);
