@@ -214,14 +214,11 @@ void draw() {
 }
 
 void mousePressed() {
-  strokeWeight(5);
   p = new Punto(mouseX, mouseY);
-  point(mouseX, mouseY);
 }
 
 void mouseReleased() {
   r = new Punto(mouseX, mouseY);
   rect = new Rectangulo(p, r);  
   r_created = true;
-  point(mouseX, mouseY);
 }
