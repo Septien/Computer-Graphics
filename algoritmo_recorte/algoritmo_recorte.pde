@@ -190,11 +190,11 @@ void setup() {
   
   p = new Punto(0, 0);
   r = new Punto(0, 0);
-  n = 1;
+  n = 10;
   seg = new Segmento[n];
   for (i = 0; i < n; i++) {
-    p = new Punto(10, 10); 
-    r = new Punto(490, 490);
+    p = new Punto(random(0, width), random(0, height)); 
+    r = new Punto(random(0, width), random(0, height));
     seg[i] = new Segmento(p, r);
     seg[i].draw_segment();
   }
