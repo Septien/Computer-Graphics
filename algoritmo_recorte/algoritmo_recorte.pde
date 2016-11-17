@@ -88,6 +88,7 @@ class Rectangulo {
   
   boolean recortar(Segmento s) {
     Punto p = new Punto(0,0);
+    Segmento saux = new Segmento(s.a, s.b);
     boolean intersect = false;
     
     //Segment complety inside of rectangle
@@ -98,38 +99,54 @@ class Rectangulo {
     else if (!dentro(s.a) && !dentro(s.b)) {
       boolean a = false;
       if ( intersection(P, Q, s.a, s.b, p) ) {
-        s.a = p;
+        saux.a.x = p.x;
+        saux.a.y = p.y;
         a = true;
         intersect = true;
       }
       if ( intersection(Q, R, s.a, s.b, p) ) {
         if (!a) {
-          s.a = p;
+          saux.a.x = p.x;
+          saux.a.y = p.y;
           a = true;
         }
-        else
-          s.b = p;
-          intersect = true;
+        else {
+          saux.b.x = p.x;
+          saux.b.y = p.y;
+        }
+        intersect = true;
       }
        
       if ( intersection(R, S, s.a, s.b, p) ) {
         if (!a) {
-          s.a = p;
+          saux.a.x = p.x;
+          saux.a.y = p.y;
           a = true;
         }
-        else
-          s.b = p;
+        else {
+          saux.b.x = p.x;
+          saux.b.y = p.y;
+        }
         intersect = true;
       }
       
-      if ( intersection(S, P, s.a, s.b, p) ) {
+      if ( intersection(P, S, s.a, s.b, p) ) {
         if (!a) {
-          s.a = p;
+          saux.a.x = p.x;
+          saux.a.y = p.y;
           a = true;
         }
-        else
-          s.b = p;
-          intersect = true;
+        else {
+          saux.b.x = p.x;
+          saux.b.y = p.y;
+        }
+        intersect = true;
+      }
+      if (intersect) {
+        s.a.x = saux.a.x;
+        s.a.y = saux.a.y;
+        s.b.x = saux.b.x;
+        s.b.y = saux.b.y;
       }
     }
     
@@ -173,11 +190,11 @@ void setup() {
   
   p = new Punto(0, 0);
   r = new Punto(0, 0);
-  n = 10;
+  n = 1;
   seg = new Segmento[n];
   for (i = 0; i < n; i++) {
-    p = new Punto(random(0, width), random(0, height));
-    r = new Punto(random(0, width), random(0, height));
+    p = new Punto(10, 10); 
+    r = new Punto(490, 490);
     seg[i] = new Segmento(p, r);
     seg[i].draw_segment();
   }
@@ -189,7 +206,7 @@ void draw() {
   if (r_created) {
     background(backg);
     rect.draw_rect();
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) { //<>//
       if (rect.recortar(seg[i]))
         seg[i].draw_segment();
     }
@@ -197,11 +214,14 @@ void draw() {
 }
 
 void mousePressed() {
+  strokeWeight(5);
   p = new Punto(mouseX, mouseY);
+  point(mouseX, mouseY);
 }
 
 void mouseReleased() {
   r = new Punto(mouseX, mouseY);
   rect = new Rectangulo(p, r);  
   r_created = true;
+  point(mouseX, mouseY);
 }
