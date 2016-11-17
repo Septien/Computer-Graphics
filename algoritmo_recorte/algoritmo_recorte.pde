@@ -89,6 +89,7 @@ class Rectangulo {
   boolean recortar(Segmento s) {
     Punto p = new Punto(0,0);
     //Segment complety inside of rectangle
+
     if (dentro(s.a) && dentro(s.b))
       return true;
     
@@ -167,13 +168,11 @@ void setup() {
   
   p = new Punto(0, 0);
   r = new Punto(0, 0);
-  n = 20;
+  n = 10;
   seg = new Segmento[n];
   for (i = 0; i < n; i++) {
-    p.x = random(0, width);
-    p.y = random(0, height);
-    r.x = random(0, width);
-    r.y = random(0, height);
+    p = new Punto(random(0, width), random(0, height));
+    r = new Punto(random(0, width), random(0, height));
     seg[i] = new Segmento(p, r);
     seg[i].draw_segment();
   }
@@ -185,7 +184,7 @@ void draw() {
   if (r_created) {
     background(backg);
     rect.draw_rect();
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) { //<>//
       if (rect.recortar(seg[i]))
         seg[i].draw_segment();
     }
@@ -193,13 +192,11 @@ void draw() {
 }
 
 void mousePressed() {
-  p.x = mouseX;
-  p.y = mouseY;
+  p = new Punto(mouseX, mouseY);
 }
 
 void mouseReleased() {
-  r.x = mouseX;
-  r.y = mouseY;
+  r = new Punto(mouseX, mouseY);
   rect = new Rectangulo(p, r);  
   r_created = true;
 }
