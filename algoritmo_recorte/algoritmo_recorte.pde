@@ -40,10 +40,8 @@ class Segmento {
   Punto b;
   color c;
   Segmento(Punto na, Punto nb) {
-    a.x = na.x;
-    a.y = na.y;
-    b.x = nb.x;
-    b.y = nb.y;
+    a = new Punto(na.x, na.y);
+    b = new Punto(nb.x, nb.y);
     c = color(random(0, 255), random(0, 255), random(0, 255));
   }
 
@@ -90,7 +88,7 @@ class Rectangulo {
   
   boolean recortar(Segmento s) {
     Punto p = new Punto(0,0);
-    Segmento saux = new Segmento(Punto(0, 0), Punto(0,0));
+    Segmento saux = new Segmento(p, p);
     boolean intersect = false;
     
     //Segment complety inside of rectangle
@@ -208,7 +206,7 @@ void draw() {
   if (r_created) {
     background(backg);
     rect.draw_rect();
-    for (i = 0; i < n; i++) { //<>//
+    for (i = 0; i < n; i++) {
       if (rect.recortar(seg[i]))
         seg[i].draw_segment();
     }
