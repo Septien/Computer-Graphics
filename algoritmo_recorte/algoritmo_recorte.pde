@@ -88,8 +88,9 @@ class Rectangulo {
   
   boolean recortar(Segmento s) {
     Punto p = new Punto(0,0);
+    boolean intersect = false;
+    
     //Segment complety inside of rectangle
-
     if (dentro(s.a) && dentro(s.b))
       return true;
     
@@ -99,6 +100,7 @@ class Rectangulo {
       if ( intersection(P, Q, s.a, s.b, p) ) {
         s.a = p;
         a = true;
+        intersect = true;
       }
       if ( intersection(Q, R, s.a, s.b, p) ) {
         if (!a) {
@@ -107,6 +109,7 @@ class Rectangulo {
         }
         else
           s.b = p;
+          intersect = true;
       }
        
       if ( intersection(R, S, s.a, s.b, p) ) {
@@ -116,6 +119,7 @@ class Rectangulo {
         }
         else
           s.b = p;
+        intersect = true;
       }
       
       if ( intersection(S, P, s.a, s.b, p) ) {
@@ -125,6 +129,7 @@ class Rectangulo {
         }
         else
           s.b = p;
+          intersect = true;
       }
     }
     
@@ -137,6 +142,7 @@ class Rectangulo {
         s.b = p;
       if ( intersection(S, P, s.a, s.b, p) )
         s.b = p;
+        intersect = true;
     }
     
     else if (dentro(s.b)) {
@@ -148,10 +154,9 @@ class Rectangulo {
         s.a = p;
       if ( intersection(S, P, s.a, s.b, p) )
         s.a = p;
+      intersect = true;
     }
-    else
-      return false;
-    return true;
+    return intersect;
   }
 }
 
@@ -184,7 +189,7 @@ void draw() {
   if (r_created) {
     background(backg);
     rect.draw_rect();
-    for (i = 0; i < n; i++) { //<>//
+    for (i = 0; i < n; i++) {
       if (rect.recortar(seg[i]))
         seg[i].draw_segment();
     }
